@@ -1,13 +1,10 @@
-#include <iostream>
-using namespace std;
-int add(int a,int b);
-int subt(int a,int b);
-int mult(int a,int b);
-int divi(int a,int b);
+#include "main.h"
 int main(){
-  int firstnum,secondnum,sum,sub,mul,div;
+  int firstnum,secondnum,sum,sub,mul;
+  float div;
   cout << "enter two integers";
-  cin >> firstnum >> secondnum >> endl;
+  cin >> firstnum;
+  cin >> secondnum;
   if(firstnum >= 0 && secondnum >=0){
   sum = add(firstnum,secondnum);
   cout << "The sum of two num is:"<< sum << endl;
@@ -23,22 +20,4 @@ int main(){
   }
   return 0;
 }
-int add(int a,int b){
-  return a+b;
-}
-int subt(int a,int b){
-  return a-b;
-}
-int mult(int a,int b){
-  return a*b;
-}
-int divi(int a,int b){
-  if(a>b){
-  return a/b;
-  }
-  else{
-    return 0;
-  }  
-}
-  
-  
+

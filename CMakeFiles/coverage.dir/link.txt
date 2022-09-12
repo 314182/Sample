@@ -1,0 +1,1 @@
+/usr/bin/c++    -fprofile-arcs -ftest-coverage  -rdynamic CMakeFiles/coverage.dir/src/test_main.cpp.o  -o coverage  -Wl,-Bstatic -lgtest -Wl,-Bdynamic -lpthread 
