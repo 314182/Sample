@@ -1,4 +1,4 @@
-/downloads/Sample/CMakeFiles/rebuild_cache.dir
-/downloads/Sample/CMakeFiles/edit_cache.dir
-/downloads/Sample/CMakeFiles/runTests.dir
-/downloads/Sample/CMakeFiles/coverage.dir
+/downloads/Sample1/CMakeFiles/rebuild_cache.dir
+/downloads/Sample1/CMakeFiles/edit_cache.dir
+/downloads/Sample1/CMakeFiles/runTests.dir
+/downloads/Sample1/CMakeFiles/coverage.dir

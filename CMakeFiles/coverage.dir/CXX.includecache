@@ -6,13 +6,13 @@
 
 #IncludeRegexTransform: 
 
-/downloads/Sample/src/main.h
+/downloads/Sample1/src/main.h
 iostream
 -
 
-/downloads/Sample/src/test_main.cpp
+/downloads/Sample1/src/test_main.cpp
 main.h
-/downloads/Sample/src/main.h
+/downloads/Sample1/src/main.h
 gtest/gtest.h
 -
 

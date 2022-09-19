@@ -11,7 +11,7 @@ ASSERT_EQ(1073741824 ,add(536870912,536870912));
 TEST(test_add,negative_nos)
 {
 ASSERT_EQ(2,add(6,-4));
-ASSERT_EQ(0 ,add(536870912,-536870912);
+ASSERT_EQ(0 ,add(536870912,-536870912));
 }
 TEST(test_subt,positive_nos)
 {
