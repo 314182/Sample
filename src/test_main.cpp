@@ -8,11 +8,11 @@ TEST(test_add,positive_nos)
 ASSERT_EQ(10,add(6,4));
 ASSERT_EQ(1073741824 ,add(536870912,536870912));
 }
-/*TEST(test_add,negative_nos)
+TEST(test_add,negative_nos)
 {
 ASSERT_EQ(2,add(6,-4));
 ASSERT_EQ(0 ,add(536870912,-536870912);
-}*/
+}
 TEST(test_subt,positive_nos)
 {
 ASSERT_EQ(-10,subt(20,30));
