@@ -30,7 +30,7 @@ jobs:
       - name: install gcovr 5.0
         run: |
           pip install gcovr==5.0 # 5.1 is not supported
-      - name: Cache SonarCloud packages
+      - name: Cache SonarQube packages
         uses: actions/cache@v1
         with:
           path: ~/.sonar/cache
