@@ -4,7 +4,7 @@ agent any
 stages{
 stage('build'){
 steps{
-sh 'cmake'
+sh 'cmake .'
 }
 }
 stage('test'){
