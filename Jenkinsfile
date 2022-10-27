@@ -21,6 +21,7 @@ sh './coverage'
 stage('reports'){
 steps{
 sh 'gcovr'
+sh 'gcovr --html'
 }
 }
 }
