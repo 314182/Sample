@@ -22,8 +22,8 @@ sh './test_coverage --gtest_output="xml:src/"'
   post{
     success{
       xunit(
-        thresholds: [[$class: 'unstableThreshold', skipped: unstable= 0],
-                    [$class: 'failureThreshold', failed: unstable= 0 ]],
+        thresholds: [[$class: 'SkippedThreshold', skipped: setUnstableThreshold(0)],
+                    [$class: 'FailureThreshold', failed: setFailureThreshold(0) ]],
         tools: [ BoostTest(pattern: 'src/*.xml') ]
       )
                 }
