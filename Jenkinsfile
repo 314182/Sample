@@ -20,8 +20,8 @@ sh './coverage'
 }
 stage('reports'){
 steps{
-sh 'gcovr'
-sh 'gcovr --html'
+sh 'gcovr -r src/'
+sh 'gcovr --sonarqube > coverage.xml'
 }
 }
 }
