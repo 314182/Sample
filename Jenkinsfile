@@ -15,11 +15,21 @@ sh 'ctest'
 }
 stage('run'){
 steps{
-sh './runTests'
+sh './runTests --gtest_output="xml:src/'
 sh './code_coverage'
-sh './test_coverage'
+sh './test_coverage --gtest_output="xml:src/'
 }
 }
+  post{
+    success{
+      xunit(
+        thresholds: [skipped(failurethreshold= '0'),failed(failurethreshold= '0')],
+        tools: [BoostTest(pattern: 'src/*.xml)]
+                          )
+                }
+                }
+        
+      
 stage('reports'){
 steps{
 sh 'gcovr -r src/'
