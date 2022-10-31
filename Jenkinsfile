@@ -24,8 +24,7 @@ sh './test_coverage --gtest_output="xml:src/'
     success{
       xunit(
         thresholds: [skipped(failurethreshold= '0'),failed(failurethreshold= '0')],
-        tools: [BoostTest(pattern: 'src/*.xml)]
-                          )
+        tools: [BoostTest(pattern: 'src/*.xml)])
                 }
                 }
         
