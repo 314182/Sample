@@ -19,7 +19,6 @@ sh './runTests --gtest_output="xml:src/'
 sh './code_coverage'
 sh './test_coverage --gtest_output="xml:src/'
 }
-}
   post{
     success{
       xunit(
@@ -27,6 +26,7 @@ sh './test_coverage --gtest_output="xml:src/'
         tools: [BoostTest(pattern: 'src/*.xml')])
                 }
                 }
+}
         
       
 stage('reports'){
