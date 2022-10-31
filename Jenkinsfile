@@ -15,7 +15,8 @@ sh 'make'
 stage('run'){
 steps{
 sh './runTests'
-sh './coverage'
+sh './code_coverage'
+sh './test_coverage'
 }
 }
 stage('reports'){
