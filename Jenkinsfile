@@ -23,7 +23,7 @@ sh './test_coverage --gtest_output="xml:src/"'
     success{
       xunit(
         thresholds: [[$class: 'skipedthreshold', skipped: unstable= 0],
-                    [$class: 'failurethreshold', failed: unstable= 0 ]]
+                    [$class: 'failurethreshold', failed: unstable= 0 ]],
         tools: [ BoostTest(pattern: 'src/*.xml') ]
       )
                 }
