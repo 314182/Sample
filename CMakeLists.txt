@@ -19,11 +19,13 @@ add_executable(code_coverage src/main.cpp src/main.h)
 # Link runTests with what we want to test and the GTest and pthread library
 
 enable_testing()
+include(GoogleTest)
+
 add_executable(runTests src/test_main.cpp)
-target_link_libraries(runTests ${GTEST_LIBRARIES} pthread)
+target_link_libraries(runTests GTest::gtest_main pthread)
 
 #testcoverage
 add_executable(test_coverage src/test_main.cpp src/main.h)
-target_link_libraries(test_coverage  ${GTEST_LIBRARIES} pthread)
-include(GoogleTest)
-gtest_discover_tests(src/test_main.cpp)
+target_link_libraries(test_coverage GTest::gtest_main pthread)
+
+gtest_discover_tests(runTests)
