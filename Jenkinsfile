@@ -15,9 +15,9 @@ sh 'ctest'
 }
 stage('run'){
 steps{
-sh './runTests --gtest_output="xml:src/'
+sh './runTests --gtest_output="xml:src/"'
 sh './code_coverage'
-sh './test_coverage --gtest_output="xml:src/'
+sh './test_coverage --gtest_output="xml:src/"'
 }
   post{
     success{
