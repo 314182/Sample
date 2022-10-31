@@ -10,6 +10,7 @@ sh 'cmake .'
 stage('test'){
 steps{
 sh 'make'
+sh 'ctest'
 }
 }
 stage('run'){
