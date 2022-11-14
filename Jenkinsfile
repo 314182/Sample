@@ -36,7 +36,7 @@ sh './test_coverage --gtest_output="xml:"'
       
 stage('reports'){
 steps{
-sh 'gcovr -r src/'
+sh 'gcovr'
 sh 'gcovr --sonarqube > coverage.xml'
 }
 }
