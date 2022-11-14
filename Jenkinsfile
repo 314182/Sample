@@ -18,16 +18,16 @@ sh 'ctest'
 }
 stage('run'){
 steps{
-sh './runTests --gtest_output="xml:src/"'
+sh './runTests --gtest_output="xml:"'
 sh './code_coverage'
-sh './test_coverage --gtest_output="xml:src/"'
+sh './test_coverage --gtest_output="xml:"'
 }
   post{
     success{
       xunit(
 //        thresholds: [[$class: 'SkippedThreshold', skipped: XUnitThreshold.setUnstableThreshold("0")],
 //                    [$class: 'FailureThreshold', failed: XUnitThreshold.setFailureThreshold("0") ]],
-        tools: [ GoogleTest(pattern: 'src/*.xml') ]
+        tools: [ GoogleTest(pattern: '**/*.xml') ]
       )
                 }
                 }
