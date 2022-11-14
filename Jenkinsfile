@@ -2,7 +2,7 @@
 pipeline{
 agent any
   options{
-    buildDiscarder logRotator(artifactDaysToKeepStr:'',artifactNumToKeepStr:'10',daysToKeepStr:'',numToKeepStr:'10')
+    buildDiscarder logRotator(artifactDaysToKeepStr:'',artifactNumToKeepStr:'15',daysToKeepStr:'',numToKeepStr:'15')
   }
 stages{
 stage('build'){
@@ -27,7 +27,7 @@ sh './test_coverage --gtest_output="xml:src/"'
       xunit(
 //        thresholds: [[$class: 'SkippedThreshold', skipped: XUnitThreshold.setUnstableThreshold("0")],
 //                    [$class: 'FailureThreshold', failed: XUnitThreshold.setFailureThreshold("0") ]],
-        tools: [ GoogleTest(pattern: '**/*.xml') ]
+        tools: [ GoogleTest(pattern: 'src/*.xml') ]
       )
                 }
                 }
