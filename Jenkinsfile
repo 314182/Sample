@@ -18,9 +18,9 @@ sh 'ctest'
 }
 stage('run'){
 steps{
-sh './runTests --gtest_output="xml:"'
+sh './runTests --gtest_output="xml:src/runTests.xml"'
 sh './code_coverage'
-sh './test_coverage --gtest_output="xml:"'
+sh './test_coverage --gtest_output="xml:src/test_coverage.xml"'
 }
   post{
     success{
@@ -36,7 +36,7 @@ sh './test_coverage --gtest_output="xml:"'
       
 stage('reports'){
 steps{
-sh 'gcovr'
+sh 'gcovr -r src/'
 sh 'gcovr --sonarqube > coverage.xml'
 }
 }
