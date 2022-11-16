@@ -27,9 +27,7 @@ sh './test_coverage --gtest_output="xml:src/test_coverage.xml"'
 }
   post{
     success{
-      xunit(
-        tools: [ GoogleTest(pattern: '**/*.xml') ]
-      )
+      junit '*.xml'
                 }
                 }
 }
@@ -40,7 +38,6 @@ steps{
 sh 'cd build'
 sh 'gcovr -r src/ .'
 sh 'gcovr --cobertura > coverage.xml'
-junit 'coverage.xml'
 }
 }
 }
