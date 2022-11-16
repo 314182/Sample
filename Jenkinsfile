@@ -37,7 +37,8 @@ stage('reports'){
 steps{
 sh 'cd build'
 sh 'gcovr -r src/ .'
-sh 'gcovr --cobertura > coverage.xml'
+sh 'gcovr --sonarqube > coverage.xml'
+junit 'build/coverage.xml'
 }
 }
 }
