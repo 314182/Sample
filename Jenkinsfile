@@ -7,17 +7,20 @@ agent any
 stages{
 stage('build'){
 steps{
-sh 'cmake .'
+sh 'cd build'
+sh 'cmake -DCMAKE_BUILD_TYPE=PROFILE src/'
 }
 }
 stage('test'){
 steps{
+sh 'cd build'
 sh 'make'
 sh 'ctest'
 }
 }
 stage('run'){
 steps{
+sh 'cd build'
 sh './runTests --gtest_output="xml:src/runTests.xml"'
 sh './code_coverage'
 sh './test_coverage --gtest_output="xml:src/test_coverage.xml"'
@@ -34,6 +37,7 @@ sh './test_coverage --gtest_output="xml:src/test_coverage.xml"'
       
 stage('reports'){
 steps{
+sh 'cd build'
 sh 'gcovr -r src/'
 sh 'gcovr --cobertura-pretty > coverage.xml'
 junit 'coverage.xml'
