@@ -27,7 +27,7 @@ sh './test_coverage --gtest_output="xml:src/test_coverage.xml"'
 }
   post{
     success{
-      junit 'runTests.xml'
+      junit 'src/runTests.xml'
                 }
                 }
 }
