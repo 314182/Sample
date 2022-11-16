@@ -5,7 +5,7 @@ agent any
     buildDiscarder logRotator(artifactDaysToKeepStr:'',artifactNumToKeepStr:'15',daysToKeepStr:'',numToKeepStr:'15')
   }
 stages{
-stage('build'){
+stage('Build'){
 steps{
 sh 'cd build'
 sh 'cmake -DCMAKE_BUILD_TYPE=PROFILE src/'
