@@ -9,6 +9,7 @@ stage('Build'){
 steps{
 sh 'mkdir bld_dir'
 sh 'cd bld_dir'
+sh 'pwd'
 sh 'cmake -DCMAKE_BUILD_TYPE=PROFILE ../src'
 sh 'cmake --build . '
 }
