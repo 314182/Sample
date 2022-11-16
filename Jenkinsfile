@@ -25,8 +25,6 @@ sh './test_coverage --gtest_output="xml:src/test_coverage.xml"'
   post{
     success{
       xunit(
-//        thresholds: [[$class: 'SkippedThreshold', skipped: XUnitThreshold.setUnstableThreshold("0")],
-//                    [$class: 'FailureThreshold', failed: XUnitThreshold.setFailureThreshold("0") ]],
         tools: [ GoogleTest(pattern: '**/*.xml') ]
       )
                 }
@@ -37,7 +35,8 @@ sh './test_coverage --gtest_output="xml:src/test_coverage.xml"'
 stage('reports'){
 steps{
 sh 'gcovr -r src/'
-sh 'gcovr --sonarqube > coverage.xml'
+sh 'gcovr --cobertura-pretty > coverage.xml'
+junit 'coverage.xml'
 }
 }
 }
