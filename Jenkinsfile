@@ -38,8 +38,8 @@ sh './test_coverage --gtest_output="xml:src/test_coverage.xml"'
 stage('reports'){
 steps{
 sh 'cd build'
-sh 'gcovr -r src/'
-sh 'gcovr --cobertura-pretty > coverage.xml'
+sh 'gcovr -r src/ .'
+sh 'gcovr --cobertura > coverage.xml'
 junit 'coverage.xml'
 }
 }
