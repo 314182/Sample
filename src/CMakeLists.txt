@@ -9,15 +9,15 @@ gtest
 URL https://github.com/google/googletest/archive/refs/tags/release-1.12.1.zip
 )
 FetchContent_MakeAvailable(gtest)
-add_executable(c_coverage src/main.cpp src/main.h)
+add_executable(c_coverage main.cpp main.h)
 
 enable_testing()
 include(GoogleTest)
 
-add_executable(runTests src/test_main.cpp)
+add_executable(runTests test_main.cpp)
 target_link_libraries(runTests GTest::gtest_main pthread)
 
-add_executable(t_coverage src/test_main.cpp src/main.h)
+add_executable(t_coverage test_main.cpp main.h)
 target_link_libraries(t_coverage GTest::gtest_main pthread)
 
 gtest_discover_tests(runTests)
