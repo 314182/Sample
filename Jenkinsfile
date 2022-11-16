@@ -7,26 +7,32 @@ agent any
 stages{
 stage('Build'){
 steps{
-sh 'mkdir bld_dir'
-sh 'cd bld_dir'
-sh 'pwd'
-sh 'cmake -DCMAKE_BUILD_TYPE=PROFILE ../src'
-sh 'cmake --build . '
+sh """ 
+mkdir bld_dir'
+cd bld_dir
+pwd
+cmake -DCMAKE_BUILD_TYPE=PROFILE ../src
+cmake --build .
+"""
 }
 }
 stage('test'){
 steps{
-sh 'cd bld_dir'
-sh 'make'
-sh 'ctest'
+sh """ 
+cd bld_dir
+make
+ctest
+"""
 }
 }
 stage('run'){
 steps{
-sh 'cd bld_dir'
-sh './runTests --gtest_output="xml:src/runTests.xml"'
-sh './code_coverage'
-sh './test_coverage --gtest_output="xml:src/test_coverage.xml"'
+sh """
+cd bld_dir
+./runTests --gtest_output="xml:src/runTests.xml"
+./code_coverage
+./test_coverage --gtest_output="xml:src/test_coverage.xml"
+"""
 }
   post{
     success{
@@ -38,9 +44,11 @@ sh './test_coverage --gtest_output="xml:src/test_coverage.xml"'
       
 stage('reports'){
 steps{
-sh 'cd bld_dir'
-sh 'gcovr -r src/ .'
-sh 'gcovr --sonarqube -r src/ . > coverage.xml'
+sh """
+cd bld_dir
+gcovr -r src/ .
+gcovr --sonarqube -r src/ . > coverage.xml
+"""
 }
 }
 }
