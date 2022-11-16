@@ -46,8 +46,8 @@ stage('reports'){
 steps{
 sh """
 cd bld_dir
-gcovr -r src/ .
-gcovr --sonarqube -r src/ . > coverage.xml
+gcovr -r ../src .
+gcovr --sonarqube -r ../src . > coverage.xml
 """
 }
 }
