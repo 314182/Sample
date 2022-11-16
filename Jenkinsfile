@@ -30,8 +30,8 @@ steps{
 sh """
 cd bld_dir
 ./runTests --gtest_output="xml:src/runTests.xml"
-./code_coverage
-./test_coverage --gtest_output="xml:src/test_coverage.xml"
+./c_coverage
+./t_coverage --gtest_output="xml:src/test_coverage.xml"
 """
 }
   post{
