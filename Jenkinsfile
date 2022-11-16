@@ -38,7 +38,6 @@ steps{
 sh 'cd build'
 sh 'gcovr -r src/ .'
 sh 'gcovr --sonarqube -r src/ . > coverage.xml'
-junit 'build/coverage.xml'
 }
 }
 }
