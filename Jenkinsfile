@@ -52,8 +52,8 @@ gcovr --sonarqube -r ../src . > coverage.xml
 }
 }
   stage('sonar-analysis'){
-    steps{
       def scannerHome = tool 'SonarQube Scanner 4.7.0';
+    steps{
       withSonarQubeEnv('Sonar1'){
         sh "${scannerHome}/bin/sonar-scanner"
       }
