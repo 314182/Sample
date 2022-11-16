@@ -9,7 +9,8 @@ stage('Build'){
 steps{
 sh 'mkdir build'
 sh 'cd build'
-sh 'cmake -DCMAKE_BUILD_TYPE=PROFILE src/'
+sh 'cmake -DCMAKE_BUILD_TYPE=PROFILE ../src'
+sh 'cmake --build .
 }
 }
 stage('test'){
