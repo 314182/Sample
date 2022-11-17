@@ -10,11 +10,11 @@ agent any
 stages{
   stage('Build-wrapper'){
     steps{
-      sh """
+      sh '''
       mkdir -p .sonar
       curl -sSLo .sonar/build-wrapper-linux-x86.zip ${SONARQUBE_URL}/static/cpp/build-wrapper-linux-x86.zip
       unzip -o .sonar/build-wrapper-linux-x86.zip -d .sonar/
-      """
+      '''
     }
   }
       
