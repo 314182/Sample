@@ -51,7 +51,7 @@ cd bld_dir
 }
   post{
     success{
-      junit 'src/runTests.xml'
+      xunit checksName:",tools:[GoogleTest(excludes
                 }
                 }
 }
