@@ -44,9 +44,9 @@ stage('run'){
 steps{
 sh """
 cd bld_dir
-./runTests --gtest_output="xml:src/runTests.xml"
+./runTests --gtest_output="xml:../src/runTests.xml"
 ./c_coverage
-./t_coverage --gtest_output="xml:src/test_coverage.xml"
+./t_coverage --gtest_output="xml:../src/test_coverage.xml"
 """
 }
   post{
