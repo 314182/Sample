@@ -20,14 +20,15 @@ stages{
       
 stage('Build'){
 steps{
-sh """ 
-mkdir bld_dir
-cd bld_dir
-pwd
-cmake -DCMAKE_BUILD_TYPE=PROFILE ../src
-cmake --build .
-//.sonar/build-wrapper-linux-x86/build-wrapper-linux-x86-64 --out-dir bw-output cmake --build . --config Release
+  sh """ 
+  mkdir bld_dir
+  cd bld_dir
+  pwd
+  cmake -DCMAKE_BUILD_TYPE=PROFILE ../src
+  cmake --build .
+
 """
+  //.sonar/build-wrapper-linux-x86/build-wrapper-linux-x86-64 --out-dir bw-output cmake --build . --config Release
 }
 }
 stage('test'){
