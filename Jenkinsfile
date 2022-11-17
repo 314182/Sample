@@ -5,7 +5,7 @@ agent any
     buildDiscarder logRotator(artifactDaysToKeepStr:'',artifactNumToKeepStr:'15',daysToKeepStr:'',numToKeepStr:'15')
   }
   environment{
-    SONARQUBE_URL = 'http://localhost:9000/'
+    SONARQUBE_URL = 'http://localhost:9000'
   }
 stages{
   stage('Build-wrapper'){
