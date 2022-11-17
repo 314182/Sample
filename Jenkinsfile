@@ -47,7 +47,7 @@ steps{
 sh """
 cd bld_dir
 gcovr -r ../src .
-gcovr --xml-pretty -r ../src . > coverage.xml
+gcovr --xml-pretty -r ../src . > src/coverage.xml
 """
 }
 }
