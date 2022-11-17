@@ -26,7 +26,7 @@ cd bld_dir
 pwd
 cmake -DCMAKE_BUILD_TYPE=PROFILE ../src
 cmake --build .
-.sonar/build-wrapper-linux-x86/build-wrapper-linux-x86-64 --out-dir bw-output cmake --build . --config Release
+//.sonar/build-wrapper-linux-x86/build-wrapper-linux-x86-64 --out-dir bw-output cmake --build . --config Release
 """
 }
 }
@@ -61,7 +61,7 @@ steps{
 sh """
 cd bld_dir
 gcovr -r ../src .
-gcovr --xml-pretty -r ../src . > src/coverage.xml
+gcovr --xml-pretty -r ../src . > ../src/coverage.xml
 """
 }
 }
