@@ -51,7 +51,7 @@ cd bld_dir
 }
   post{
     success{
-      xunit checksName:",tools:[GoogleTest(excludes
+      xunit checksName:'',tools:[GoogleTest(excludesPattern:'', pattern:'**/src/*.xml', stopProcessingIfError:true)]
                 }
                 }
 }
