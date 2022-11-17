@@ -4,7 +4,20 @@ agent any
   options{
     buildDiscarder logRotator(artifactDaysToKeepStr:'',artifactNumToKeepStr:'15',daysToKeepStr:'',numToKeepStr:'15')
   }
+  environment{
+    SONARQUBE_URL = 'http://localhost:9000/'
+  }
 stages{
+  stage('Build-wrapper'){
+    steps{
+      sh """
+      mkdir -p .sonar
+      curl -sSLo .sonar/build-wrapper-linux-x86.zip ${SONARQUBE_URL}/static/cpp/build-wrapper-linux-x86.zip
+      unzip -o .sonar/build-wrapper-linux-x86.zip -d .sonar/
+      """
+    }
+  }
+      
 stage('Build'){
 steps{
 sh """ 
@@ -13,6 +26,7 @@ cd bld_dir
 pwd
 cmake -DCMAKE_BUILD_TYPE=PROFILE ../src
 cmake --build .
+.sonar/build-wrapper-linux-x86/build-wrapper-linux-x86-64 --out-dir bw-output cmake --build . --config Release
 """
 }
 }
