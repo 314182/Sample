@@ -62,9 +62,9 @@ steps{
 sh """
 cd bld_dir
 gcovr -r ../src .
-gcovr --xml-pretty -r ../src/ . > ../src/coverage.xml
+gcovr --xml-pretty -r ../src/ . > coverage.xml
 """
-cobertura autoUpdateHealth:false,autoUpdateStability:false,coberturaReportFile:'**/src/coverage.xml',conditionalCoverageTargets:'70,0,0',failUnhealthy:false,failUnstable:false,lineCoverageTargets:'80,0,0',onlyStable:false,sourceEncoding:'ASCII',zoomCoverageChart:false
+cobertura autoUpdateHealth:false,autoUpdateStability:false,coberturaReportFile:'coverage.xml',conditionalCoverageTargets:'70,0,0',failUnhealthy:false,failUnstable:false,lineCoverageTargets:'80,0,0',onlyStable:false,sourceEncoding:'ASCII',zoomCoverageChart:false
 }
 }
   stage('sonar-analysis'){
