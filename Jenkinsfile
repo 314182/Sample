@@ -51,7 +51,7 @@ cd bld_dir
 }
   post{
     success{
-      xunit checksName:'',tools:[GoogleTest(excludesPattern:'', pattern:'**/src/*.xml', stopProcessingIfError:true)]
+      xunit checksName:'',tools:[GoogleTest(excludesPattern:'**/src/coverage.xml', pattern:'**/src/*.xml', stopProcessingIfError:true)]
                 }
                 }
 }
@@ -64,6 +64,7 @@ cd bld_dir
 gcovr -r ../src .
 gcovr --xml-pretty -r ../src . > ../src/coverage.xml
 """
+cobertura autoUpdateHealth:false,autoUpdateStability:false,coberturaReportFile:'**/src/coverage.xml',conditionalCoverageTargets:'70,0,0',failUnhealthy:false,failUnstable:false,lineCoverageTargets:'80,0,0',onlyStable:false,'sourceEncoding:'ASCII',zoomCoverageChart:false
 }
 }
   stage('sonar-analysis'){
