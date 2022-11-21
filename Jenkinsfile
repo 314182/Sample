@@ -62,7 +62,7 @@ steps{
 sh """
 cd bld_dir
 gcovr -r ../src .
-gcovr --xml-pretty -r ../src . > coverage.xml
+gcovr --xml-pretty -r /var/lib/jenkins/workspace/Samplegit/src . > coverage.xml
 """
 cobertura autoUpdateHealth:false,autoUpdateStability:false,coberturaReportFile:'bld_dir/coverage.xml',conditionalCoverageTargets:'70,0,0',failUnhealthy:false,failUnstable:false,lineCoverageTargets:'80,0,0',onlyStable:false,sourceEncoding:'ASCII',zoomCoverageChart:false
 }
