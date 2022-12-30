@@ -43,6 +43,7 @@ ctest
 stage('run'){
 steps{
 sh """
+echo ${env.WORKSPACE}
 cd bld_dir
 ./runTests --gtest_output="xml:../src/runTests.xml"
 ./c_coverage
