@@ -50,6 +50,7 @@ cd bld_dir
 ./t_coverage --gtest_output="xml:../test_coverage.xml"
 """
 }
+  sh """ find ${env.WORKSPACE} -name *.gcda """
   post{
     success{
       xunit checksName:'',tools:[GoogleTest(excludesPattern:'**/bld_dir/coverage.xml', pattern:'**/*.xml', stopProcessingIfError:true)]
