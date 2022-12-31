@@ -52,7 +52,7 @@ cd bld_dir
 }
   post{
     success{
-      xunit checksName:'',tools:[GoogleTest(excludesPattern:'**/src/coverage.xml', pattern:'**/*.xml', stopProcessingIfError:true)]
+      xunit checksName:'',tools:[GoogleTest(excludesPattern:'**/bld_dir/coverage.xml', pattern:'**/*.xml', stopProcessingIfError:true)]
                 }
                 }
 }
