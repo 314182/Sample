@@ -24,7 +24,7 @@ steps{
   mkdir bld_dir
   cd bld_dir
   pwd
-  cmake -DCMAKE_BUILD_TYPE=DEBUG ../src
+  cmake -DCMAKE_BUILD_TYPE=DEBUG ..
   cmake --build .
 
 """
@@ -45,9 +45,9 @@ steps{
 sh """
 echo ${env.WORKSPACE}
 cd bld_dir
-./runTests --gtest_output="xml:../src/runTests.xml"
+./runTests --gtest_output="xml:../runTests.xml"
 ./c_coverage
-./t_coverage --gtest_output="xml:../src/test_coverage.xml"
+./t_coverage --gtest_output="xml:../test_coverage.xml"
 """
 }
   post{
@@ -62,8 +62,8 @@ stage('reports'){
 steps{
 sh """
 cd bld_dir
-gcovr -r ../src .
-gcovr --xml-pretty -r /var/lib/jenkins/workspace/Samplegit/src . > coverage.xml
+gcovr -r .. .
+gcovr --xml-pretty -r /var/lib/jenkins/workspace/Samplegit . > coverage.xml
 """
 cobertura autoUpdateHealth:false,autoUpdateStability:false,coberturaReportFile:'bld_dir/coverage.xml',conditionalCoverageTargets:'70,0,0',failUnhealthy:false,failUnstable:false,lineCoverageTargets:'80,0,0',onlyStable:false,sourceEncoding:'ASCII',zoomCoverageChart:false
 }
