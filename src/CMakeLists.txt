@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 2.6)
 project(sample)
 set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_C_FLAGS_PROFILE --fprofile-arcs --ftest-coverage)
-set(CMAKE_CXX_FLAGS_PROFILE --fprofile-arcs --ftest-coverage)
+set(CMAKE_C_FLAGS_PROFILE -fprofile-arcs -ftest-coverage)
+set(CMAKE_CXX_FLAGS_PROFILE -fprofile-arcs -ftest-coverage)
 include(FetchContent)
 FetchContent_Declare(
 gtest
