@@ -24,7 +24,7 @@ steps{
   mkdir bld_dir
   cd bld_dir
   pwd
-  cmake -DCMAKE_BUILD_TYPE=PROFILE ../src
+  cmake -DCMAKE_BUILD_TYPE=DEBUG ../src
   cmake --build .
 
 """
