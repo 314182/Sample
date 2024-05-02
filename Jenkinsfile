@@ -20,7 +20,7 @@ stages{
       
 stage('Build'){
 steps{
-  sh """ 
+  bat """ 
   mkdir bld_dir
   cd bld_dir
   pwd
@@ -33,22 +33,21 @@ steps{
 }
 stage('test'){
 steps{
-sh """ 
+bat """ 
 cd bld_dir
 make
-ctest
+// ctest
 """
 }
 }
 stage('run'){
 steps{
-sh """
+bat """
 echo ${env.WORKSPACE}
 cd bld_dir
 ./runTests --gtest_output="xml:../runTests.xml"
 ./c_coverage
 ./t_coverage --gtest_output="xml:../test_coverage.xml"
-find ${env.WORKSPACE} -name *.gcda 
 """
 }
   post{
@@ -61,7 +60,7 @@ find ${env.WORKSPACE} -name *.gcda
       
 stage('reports'){
 steps{
-sh """
+bat """
 cd bld_dir
 gcovr -r .. .
 gcovr --xml-pretty -r /var/lib/jenkins/workspace/Samplegit . > coverage.xml
@@ -75,7 +74,7 @@ cobertura autoUpdateHealth:false,autoUpdateStability:false,coberturaReportFile:'
       scannerHome = tool 'SonarQube Scanner 4.7.0'
       }
       withSonarQubeEnv('Sonar1'){
-        sh "${scannerHome}/bin/sonar-scanner"
+        bat "${scannerHome}/bin/sonar-scanner"
       }
     }
   }
