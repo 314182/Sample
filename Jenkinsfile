@@ -21,6 +21,7 @@ stages{
 stage('Build'){
 steps{
   bat """ 
+  dir
   mkdir bld_dir
   cd bld_dir
   pwd
