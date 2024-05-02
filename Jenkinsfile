@@ -36,7 +36,7 @@ steps{
 bat """ 
 cd bld_dir
 make
-// ctest
+ctest
 """
 }
 }
