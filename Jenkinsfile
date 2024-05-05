@@ -23,7 +23,7 @@ steps{
   bat """ 
   dir
   mkdir bld_dir
-  cmake -S . -B bld_dir -G "MinGW Makefiles" -D "CMAKE_MAKE_PROGRAM=C:\\Program Files\\mingw-w64\\x86_64-8.1.0-posix-seh-rt_v6-rev0\\mingw64\\bin\\mingw32-make.exe"
+  cmake -S . -B bld_dir -G "MinGW Makefiles"
 
 """
   //.sonar/build-wrapper-linux-x86/build-wrapper-linux-x86-64 --out-dir bw-output cmake --build . --config Release
