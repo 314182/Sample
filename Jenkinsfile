@@ -23,10 +23,7 @@ steps{
   bat """ 
   dir
   mkdir bld_dir
-  cd bld_dir
-  pwd
-  cmake ..
-  cmake --build .
+  cmake -S . -B bld_dir -G "MinGW Makefiles"
 
 """
   //.sonar/build-wrapper-linux-x86/build-wrapper-linux-x86-64 --out-dir bw-output cmake --build . --config Release
